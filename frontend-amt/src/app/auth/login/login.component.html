@@ -1,0 +1,48 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+    <div class="login-register" style="background-image:url(./assets/images/background/login-register.jpg);">
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" method="POST">
+                    <div class="text-center">
+                        <img alt="homepage" src="assets/images/logo-icon.png">
+                        <h4 class="box-title m-b-20">Login to App</h4>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input [(ngModel)]="usuario.username" class="form-control" type="text" required
+                                id="username" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input [(ngModel)]="usuario.password" class="form-control" type="password" required
+                                id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-info pull-left p-t-0">
+                                <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+                                <label for="checkbox-signup"> Remember me </label>
+                            </div> <a [routerLink]="['/recover']" id="to-recover" class="text-dark pull-right"><i
+                                    class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-0">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit"
+                                (click)="login()">Log In</button>
+                        </div>
+                    </div>                                      
+                </form>               
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

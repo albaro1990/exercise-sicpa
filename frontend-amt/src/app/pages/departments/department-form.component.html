@@ -1,0 +1,73 @@
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+    <li *ngFor="let err of errores">
+        {{ err }}
+    </li>
+</ul>
+<div class="alert alert-danger" *ngIf="error">{{error}}</div>
+
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" #departmentForm="ngForm">
+                    <div class="form-group">
+                        <label class="col-sm-12">Enterprises</label>
+                        <div class="col-sm-12">
+                            <select class="form-control form-control-line" id="enterprise" name="enterprise"
+                                 [(ngModel)]="enterprise" class="form-control">
+                                <option [ngValue]="undefined">Seleccionar...</option>
+                                <option *ngFor="let enterprise of listEnterprises" [ngValue]="enterprise">
+                                    {{ enterprise.name }}
+                                </option>
+                            </select>
+                            <!-- <div class="alert alert-danger" *ngIf="enterprise. invalid && (enterprise.dirty || enterprise.touched)">
+                                <div *ngIf="enterprise.errors.required">El campo es requerido</div>
+                            </div> -->
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-12">Name</label>
+                            <div class="col-sm-12">
+                                <input id="name" name="name" [(ngModel)]="department.name" type="text"
+                                class="form-control form-control-line" #name=ngModel />
+                              <div class="alert alert-danger" *ngIf="name. invalid && (name.dirty || name.touched)">
+                                    <div *ngIf="name.errors.required">El campo es requerido</div>
+                                </div>
+                            </div> 
+                        </div>
+    
+                        <div class="form-group">
+                            <label class="col-sm-12">Description</label>
+                            <div class="col-sm-12">
+                                <input id="description" name="description" [(ngModel)]="department.description" type="text"
+                                class="form-control form-control-line" #address=ngModel />
+                                 
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label class="col-sm-12">Phone</label>
+                            <div class="col-sm-12">
+                                <input id="phone" name="phone" [(ngModel)]="department.phone" type="text"
+                                class="form-control form-control-line" #phone=ngModel />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button [disabled]="!departmentForm.form.valid" class="btn btn-success"
+                                (click)="create()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Page Content -->
+<!-- ============================================================== -->
