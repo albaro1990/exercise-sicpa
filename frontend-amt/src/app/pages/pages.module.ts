@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { AutoFormComponent } from './auto/auto-form.component';
-import { AutoComponent } from './auto/auto.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentFormComponent } from './departments/department-form.component';
 import { DepartmentComponent } from './departments/department.component';
@@ -21,8 +19,6 @@ import { ProfileComponent } from './profile/profile.component';
     DashboardComponent,
     PagesComponent,
     ProfileComponent,
-    AutoComponent,
-    AutoFormComponent,
     EnterpriseComponent,
     EnterpriseFormComponent,
     DepartmentComponent,

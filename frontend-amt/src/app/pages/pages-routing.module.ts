@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guard/auth.guard';
 import { RoleGuard } from '../guard/role.guard';
-import { AutoFormComponent } from './auto/auto-form.component';
-import { AutoComponent } from './auto/auto.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -11,6 +9,8 @@ import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { EnterpriseFormComponent } from './enterprise/enterprise-form.component';
 import { DepartmentComponent } from './departments/department.component';
 import { DepartmentFormComponent } from './departments/department-form.component';
+import { EmployeeComponent } from './employees/employee.component';
+import { EmployeeFormComponent } from './employees/employee-form.component';
 
 const routes: Routes = [
   {
@@ -27,20 +27,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         data: { title: 'Profile' },
-      },
-      {
-        path: 'auto',
-        component: AutoComponent,
-        canActivate: [AuthGuard, RoleGuard],
-        data: {
-          role: ['ROLE_ADMIN', 'ROLE_USER'], title: 'Consultar Auto',
-        },
-      },
-      {
-        path: 'auto/form',
-        component: AutoFormComponent,
-        canActivate: [AuthGuard, RoleGuard],
-        data: { role: ['ROLE_ADMIN'], title: 'Crear Auto' },
       },
       {
         path: 'enterprise',
@@ -81,6 +67,26 @@ const routes: Routes = [
         component: DepartmentFormComponent,
         canActivate: [AuthGuard, RoleGuard],
         data: { role: ['ROLE_ADMIN'], title: 'Update Department' },
+      },
+      {
+        path: 'employee',
+        component: EmployeeComponent,
+        canActivate: [AuthGuard, RoleGuard],
+        data: {
+          role: ['ROLE_ADMIN', 'ROLE_USER'], title: 'List Employee',
+        },
+      },
+      {
+        path: 'employee/form',
+        component: EmployeeFormComponent,
+        canActivate: [AuthGuard, RoleGuard],
+        data: { role: ['ROLE_ADMIN'], title: 'Create Employee' },
+      },
+      {
+        path: 'employee/form/:id',
+        component: EmployeeFormComponent,
+        canActivate: [AuthGuard, RoleGuard],
+        data: { role: ['ROLE_ADMIN'], title: 'Update Employee' },
       },
     ],
   },
