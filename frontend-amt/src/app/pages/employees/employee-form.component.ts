@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DepartmentsEmployees } from 'src/app/models/departmentEmployee';
 import { Departments } from 'src/app/models/departments';
+import { Employee } from 'src/app/models/employee';
 import { Enterprise } from 'src/app/models/enterprise';
 import { DepartmentService } from 'src/app/services/department.service';
-import { EnterpriseService } from 'src/app/services/enterprise.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,35 +17,41 @@ export class EmployeeFormComponent implements OnInit {
   enterprise: Enterprise;
   
   department: Departments = new Departments();
+  listDepartments: Departments[] = [];
+  departmentsEmployees: DepartmentsEmployees;
+
+  employee: Employee;
   errores: string[] = [];
   error: string;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private enterpriseService: EnterpriseService,
+  
     private departmentService: DepartmentService
   ) {}
 
   ngOnInit(): void {
-    this.loadEnterprises();
+    this.loadDepartments();
     this.activatedRoute.paramMap.subscribe((params) => {
       let id = +params.get('id');
-      this.departmentService.findById(id).subscribe((department) => {
-        this.department = department;
-      });
+      if(id!=null && id >0){
+        this.departmentService.findById(id).subscribe((departments) => {
+          this.department = departments;
+        });
+      }
     });
   }
 
-  public loadEnterprises(): void {
-    this.enterpriseService.findAll().subscribe((enterprises) => {
-      this.listEnterprises = enterprises;
+  public loadDepartments(): void {
+    this.departmentService.findAll().subscribe((departments) => {
+      this.listDepartments = departments;
     });
   }
 
   public create(): void {
     this.limpiar();
-    if (this.enterprise != null) {
+    if (this.employee != null) {
       this.department.enterprises = this.enterprise;
       console.log(this.department);
       this.departmentService.save(this.department).subscribe(

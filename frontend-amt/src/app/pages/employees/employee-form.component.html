@@ -12,26 +12,26 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form class="form-horizontal form-material" #departmentForm="ngForm">
+                <form class="form-horizontal form-material" #employeeForm="ngForm">
                     <div class="form-group">
-                        <label class="col-sm-12">Employees</label>
+                        <label class="col-sm-12">Departments</label>
                         <div class="col-sm-12">
-                            <select class="form-control form-control-line" id="enterprise" name="enterprise"
-                                 [(ngModel)]="enterprise" class="form-control">
+                            <select class="form-control form-control-line" id="department" name="department"
+                                 [(ngModel)]="department" class="form-control">
                                 <option [ngValue]="undefined">Seleccionar...</option>
-                                <option *ngFor="let enterprise of listEnterprises" [ngValue]="enterprise">
-                                    {{ enterprise.name }}
+                                <option *ngFor="let department of listDepartments" [ngValue]="department">
+                                    {{ department.name }}
                                 </option>
                             </select>
-                            <!-- <div class="alert alert-danger" *ngIf="enterprise. invalid && (enterprise.dirty || enterprise.touched)">
-                                <div *ngIf="enterprise.errors.required">El campo es requerido</div>
+                            <!-- <div class="alert alert-danger" *ngIf="department. invalid && (department.dirty || department.touched)">
+                                <div *ngIf="department.errors.required">El campo es requerido</div>
                             </div> -->
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-12">Name</label>
                             <div class="col-sm-12">
-                                <input id="name" name="name" [(ngModel)]="department.name" type="text"
+                                <input id="name" name="name" [(ngModel)]="employee.name" type="text"
                                 class="form-control form-control-line" #name=ngModel />
                               <div class="alert alert-danger" *ngIf="name. invalid && (name.dirty || name.touched)">
                                     <div *ngIf="name.errors.required">El campo es requerido</div>
@@ -40,18 +40,18 @@
                         </div>
     
                         <div class="form-group">
-                            <label class="col-sm-12">Description</label>
+                            <label class="col-sm-12">Surneme</label>
                             <div class="col-sm-12">
-                                <input id="description" name="description" [(ngModel)]="department.description" type="text"
+                                <input id="surneme" name="surneme" [(ngModel)]="employee.surname" type="text"
                                 class="form-control form-control-line" #address=ngModel />
                                  
                             </div>
                         </div>
     
                         <div class="form-group">
-                            <label class="col-sm-12">Phone</label>
+                            <label class="col-sm-12">E-Mail</label>
                             <div class="col-sm-12">
-                                <input id="phone" name="phone" [(ngModel)]="department.phone" type="text"
+                                <input id="email" name="email" [(ngModel)]="employee.email" type="text"
                                 class="form-control form-control-line" #phone=ngModel />
                             </div>
                         </div>
@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button [disabled]="!departmentForm.form.valid" class="btn btn-success"
+                            <button [disabled]="!employeeForm.form.valid" class="btn btn-success"
                                 (click)="create()">Save</button>
                         </div>
                     </div>

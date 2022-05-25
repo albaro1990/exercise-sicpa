@@ -19,21 +19,22 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Description</th>
-                                <th>Phone</th>
+                                <th>Surname</th>
+                                <th>E-Mail</th>
+                                
                         
                                 <th class="text-nowrap">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of departments">
-                                <td>{{item.id}}</td>
-                                <td>{{item.name}}</td>
-                                <td>{{item.description}}</td>
-                                <td>{{item.phone}}</td>
+                            <tr *ngFor="let item of departmentsEmployees">
+                                <td>{{item.employees.id}}</td>
+                                <td>{{item.employees.name}}</td>
+                                <td>{{item.employees.surname}}</td>
+                                <td>{{item.employees.email}}</td>
                                
                                  <td *ngIf="authService.hasRole('ROLE_ADMIN')"><button
-                                        [routerLink]="['/dashboard/department/form', item.id]" type="submit"
+                                        [routerLink]="['/dashboard/employee/form', item.id]" type="submit"
                                         class="btn waves-effect waves-light btn-xs btn-secondary">Edit</button></td> 
                                 
                             </tr>
