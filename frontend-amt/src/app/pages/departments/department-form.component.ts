@@ -33,6 +33,7 @@ export class DepartmentFormComponent implements OnInit {
       if(id!=null && id >0){
       this.departmentService.findById(id).subscribe((department) => {
         this.department = department;
+        this.enterprise = department.enterprises;
       });
     }
     });
@@ -71,6 +72,13 @@ export class DepartmentFormComponent implements OnInit {
         }
       );
     }
+  }
+
+  public comparar(a1: Enterprise, a2: Enterprise): boolean {
+    if (a1 === undefined && a2 === undefined) {
+      return true;
+    }
+    return (a1 === null || a2 == null || a1 === undefined || a2 === undefined) ? false : a1.id === a2.id;
   }
 
   private limpiar(): void {
