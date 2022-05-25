@@ -30,7 +30,7 @@ export class EnterpriseFormComponent implements OnInit {
       this.enterpriseService.findById(id).subscribe((enterprise) => {
         this.enterprise = enterprise;
       });
-    }
+     }
     });
     
   }
