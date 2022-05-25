@@ -30,9 +30,11 @@ export class DepartmentFormComponent implements OnInit {
     this.loadEnterprises();
     this.activatedRoute.paramMap.subscribe((params) => {
       let id = +params.get('id');
+      if(id!=null && id >0){
       this.departmentService.findById(id).subscribe((department) => {
         this.department = department;
       });
+    }
     });
   }
 

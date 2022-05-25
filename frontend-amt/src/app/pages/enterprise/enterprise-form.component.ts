@@ -26,9 +26,11 @@ export class EnterpriseFormComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe((params) => {
       let id = +params.get('id');
+      if(id!=null && id >0){
       this.enterpriseService.findById(id).subscribe((enterprise) => {
         this.enterprise = enterprise;
       });
+    }
     });
     
   }
