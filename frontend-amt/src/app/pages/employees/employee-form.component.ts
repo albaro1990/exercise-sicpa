@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DepartmentsEmployees } from 'src/app/models/departmentEmployee';
+import { DepartmentEmployees } from 'src/app/models/departmentEmployee';
 import { Departments } from 'src/app/models/departments';
 import { Employee } from 'src/app/models/employee';
 import { Enterprise } from 'src/app/models/enterprise';
@@ -18,9 +18,9 @@ export class EmployeeFormComponent implements OnInit {
   
   department: Departments = new Departments();
   listDepartments: Departments[] = [];
-  departmentsEmployees: DepartmentsEmployees;
+  departmentsEmployees: DepartmentEmployees;
 
-  employee: Employee;
+  employee: Employee  = new Employee();;
   errores: string[] = [];
   error: string;
 
@@ -33,11 +33,12 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDepartments();
+
     this.activatedRoute.paramMap.subscribe((params) => {
       let id = +params.get('id');
       if(id!=null && id >0){
-        this.departmentService.findById(id).subscribe((departments) => {
-          this.department = departments;
+        this.departmentService.findById(id).subscribe((department) => {
+          this.department = department;
         });
       }
     });
@@ -76,6 +77,13 @@ export class EmployeeFormComponent implements OnInit {
         }
       );
     }
+  }
+
+  public comparar(a1: Enterprise, a2: Enterprise): boolean {
+    if (a1 === undefined && a2 === undefined) {
+      return true;
+    }
+    return (a1 === null || a2 == null || a1 === undefined || a2 === undefined) ? false : a1.id === a2.id;
   }
 
   private limpiar(): void {

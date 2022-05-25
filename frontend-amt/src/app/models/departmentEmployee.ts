@@ -2,7 +2,7 @@
 import { Departments } from './departments';
 import { Employee } from './employee';
 
-export class DepartmentsEmployees {
+export class DepartmentEmployees {
   id: number;
  
   departments: Departments;

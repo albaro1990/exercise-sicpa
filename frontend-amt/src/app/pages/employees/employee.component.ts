@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import { DatePipe } from '@angular/common';
 import { Departments } from 'src/app/models/departments';
 import { DepartmentService } from 'src/app/services/department.service';
-import { DepartmentsEmployees } from 'src/app/models/departmentEmployee';
+import { DepartmentEmployees } from 'src/app/models/departmentEmployee';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-employee',
@@ -14,7 +15,8 @@ import { DepartmentsEmployees } from 'src/app/models/departmentEmployee';
 export class EmployeeComponent implements OnInit {
   departments: Departments[] = [];
   department: Departments = new Departments();
-  departmentsEmployees: DepartmentsEmployees[] = [];
+  departmentsEmployees: DepartmentEmployees[] = [];
+  employee: Employee;
   error: string;
   datePipe: DatePipe = new DatePipe('en-US');
 

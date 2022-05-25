@@ -17,7 +17,7 @@
                         <label class="col-sm-12">Departments</label>
                         <div class="col-sm-12">
                             <select class="form-control form-control-line" id="department" name="department"
-                                 [(ngModel)]="department" class="form-control">
+                                 [(ngModel)]="department" class="form-control" [compareWith]="comparar">
                                 <option [ngValue]="undefined">Seleccionar...</option>
                                 <option *ngFor="let department of listDepartments" [ngValue]="department">
                                     {{ department.name }}
