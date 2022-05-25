@@ -2,7 +2,7 @@
 
 
 # Backend
-# Crear la base de datos en PostgreSQL
+# Crear la base de datos en MySql
 `CREATE DATABASE bdd_tests`
 #
 Verificar que la base de datos este corriendo por el puerto por defecto `3306`.
